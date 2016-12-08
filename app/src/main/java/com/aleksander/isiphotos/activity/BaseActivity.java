@@ -1,9 +1,15 @@
 package com.aleksander.isiphotos.activity;
 
+import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.aleksander.isiphotos.MyApplication;
+import com.aleksander.isiphotos.dagger.ActivityInjectVisitor;
 import com.aleksander.isiphotos.presenter.BasePresenter;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
@@ -13,6 +19,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity{
 
+    @Inject
     protected T presenter;
 
     @Override
@@ -23,9 +30,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     @SuppressWarnings("unchecked")
     @Override
-    protected void onStart() {
-        super.onStart();
-        presenter = providePresenter();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        accept(((MyApplication)getApplication()).getActivityInjectVisitor());
         presenter.bind(this);
     }
 
@@ -35,5 +42,5 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         presenter.unbind();
     }
 
-    protected abstract T providePresenter();
+    protected abstract void accept(ActivityInjectVisitor visitor);
 }

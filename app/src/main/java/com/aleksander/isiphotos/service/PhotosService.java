@@ -6,6 +6,8 @@ import com.aleksander.isiphotos.respository.PhotosRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 
 /**
@@ -17,6 +19,7 @@ public class PhotosService {
 
     private final PhotosRepository photosRepository;
 
+    @Inject
     public PhotosService(PhotosRepository photosRepository) {
         this.photosRepository = photosRepository;
     }

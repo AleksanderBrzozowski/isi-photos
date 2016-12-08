@@ -2,12 +2,8 @@ package com.aleksander.isiphotos;
 
 import android.app.Application;
 
-import com.aleksander.isiphotos.activity.BaseActivity;
-import com.aleksander.isiphotos.dagger.ActivityComponentBuilder;
-import com.aleksander.isiphotos.dagger.HasActivitySubComponentBuilders;
+import com.aleksander.isiphotos.dagger.ActivityInjectVisitor;
 import com.aleksander.isiphotos.dagger.component.DaggerAppComponent;
-
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -15,10 +11,10 @@ import javax.inject.Inject;
 /**
  * @author Aleksander
  */
-public class MyApplication extends Application implements HasActivitySubComponentBuilders {
+public class MyApplication extends Application {
 
     @Inject
-    Map<Class<? extends BaseActivity>, ActivityComponentBuilder> activityComponentBuilders;
+    ActivityInjectVisitor activityInjectVisitor;
 
     @Override
     public void onCreate() {
@@ -27,8 +23,7 @@ public class MyApplication extends Application implements HasActivitySubComponen
                 .inject(this);
     }
 
-    @Override
-    public ActivityComponentBuilder getActivityComponentBuilder(Class<? extends BaseActivity> activityClass) {
-        return activityComponentBuilders.get(activityClass);
+    public ActivityInjectVisitor getActivityInjectVisitor() {
+        return activityInjectVisitor;
     }
 }
