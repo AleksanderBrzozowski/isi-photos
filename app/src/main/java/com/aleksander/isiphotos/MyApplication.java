@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.aleksander.isiphotos.dagger.ActivityInjectVisitor;
 import com.aleksander.isiphotos.dagger.component.DaggerAppComponent;
+import com.aleksander.isiphotos.dagger.module.AppModule;
 
 import javax.inject.Inject;
 
@@ -19,7 +20,9 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        DaggerAppComponent.create()
+        DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build()
                 .inject(this);
     }
 

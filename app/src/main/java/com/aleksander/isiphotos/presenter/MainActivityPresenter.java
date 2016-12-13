@@ -2,6 +2,7 @@ package com.aleksander.isiphotos.presenter;
 
 import com.aleksander.isiphotos.activity.view.MainActivityView;
 import com.aleksander.isiphotos.dagger.ActivityScope;
+import com.aleksander.isiphotos.model.Photo;
 import com.aleksander.isiphotos.service.PhotosService;
 
 import javax.inject.Inject;
@@ -11,7 +12,7 @@ import javax.inject.Inject;
  */
 
 @ActivityScope
-public class MainActivityPresenter extends BasePresenter<MainActivityView> {
+public class MainActivityPresenter extends BasePresenter<MainActivityView> implements OnItemClickListener<Photo> {
 
     private final PhotosService photosService;
 
@@ -32,5 +33,10 @@ public class MainActivityPresenter extends BasePresenter<MainActivityView> {
                                 photos -> view.showPhotos(photos),
                                 Throwable::printStackTrace
                         ));
+    }
+
+    @Override
+    public void onItemClicked(Photo item) {
+
     }
 }

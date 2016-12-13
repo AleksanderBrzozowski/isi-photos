@@ -28,11 +28,16 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         ButterKnife.bind(this);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         accept(((MyApplication)getApplication()).getActivityInjectVisitor());
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
         presenter.bind(this);
     }
 

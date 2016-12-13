@@ -1,11 +1,19 @@
 package com.aleksander.isiphotos.model;
 
 
+import java.util.Date;
+
+import lombok.Getter;
+
 /**
  * @author Aleksander
  */
 
+@Getter
 public class Photo {
 
-    private String id;
+    private PhotoUrls urls;
+    private int likes;
+    private Date created_at;
+    private User user;
 }
