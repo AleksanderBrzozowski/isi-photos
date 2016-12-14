@@ -2,13 +2,13 @@ package com.aleksander.isiphotos.view_holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aleksander.isiphotos.R;
 import com.aleksander.isiphotos.model.Photo;
 import com.aleksander.isiphotos.presenter.OnItemClickListener;
 import com.aleksander.isiphotos.utils.ColorUtils;
-import com.aleksander.isiphotos.view.SquareHeightImageView;
 import com.aleksander.isiphotos.view.WidthRatioImageView;
 import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
@@ -25,9 +25,11 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.item_feed_image)
     WidthRatioImageView imageView;
     @BindView(R.id.item_feed_profile_image)
-    SquareHeightImageView profileImageView;
+    ImageView profileImageView;
     @BindView(R.id.item_feed_username)
     TextView usernameTextView;
+    @BindView(R.id.item_feed_likes)
+    TextView likesTextView;
 
 
     public FeedViewHolder(View itemView) {
@@ -36,6 +38,8 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Photo photo, OnItemClickListener<Photo> onItemClickListener, Picasso picasso) {
+        likesTextView.setText(String.valueOf(photo.getLikes()));
+
         imageView.setRatio((float)photo.getHeight() / photo.getWidth());
         picasso.load(photo.getUrls().getSmall())
                 .into(imageView);

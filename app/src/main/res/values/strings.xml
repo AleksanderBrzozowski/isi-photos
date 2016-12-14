@@ -2,4 +2,7 @@
     <string name="app_name">isi photos</string>
     <string name="image_feed_desc">Image uploaded to unsplash.com</string>
     <string name="image_feed_profile">Profile picture</string>
+    <string name="mark_as_favourite">Mark as favourite</string>
+    <string name="hardcoded_likes">123</string>
+    <string name="hardcoded_username">Maly_jou</string>
 </resources>
