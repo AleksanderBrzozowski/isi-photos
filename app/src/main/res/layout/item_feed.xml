@@ -38,6 +38,7 @@
                 android:id="@+id/item_feed_username"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_small"
                 android:layout_toEndOf="@+id/item_feed_profile_image"
                 android:layout_toStartOf="@+id/item_feed_like_image"
                 android:gravity="center_horizontal|center_vertical|start"
