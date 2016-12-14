@@ -16,4 +16,6 @@ public class Photo {
     private int likes;
     private Date created_at;
     private User user;
+    private int width;
+    private int height;
 }
