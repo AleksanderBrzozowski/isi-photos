@@ -1,23 +1,15 @@
 package com.aleksander.isiphotos.model;
 
+import lombok.Getter;
+
 /**
  * @author Aleksander
  */
+@Getter
 public class PhotoUrls {
 
     private String small;
     private String raw;
     private String full;
-
-    public String getSmall() {
-        return small;
-    }
-
-    public String getRaw() {
-        return raw;
-    }
-
-    public String getFull() {
-        return full;
-    }
+    private String regular;
 }
