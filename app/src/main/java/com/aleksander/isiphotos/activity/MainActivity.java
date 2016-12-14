@@ -36,6 +36,8 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
+        recyclerView.setItemViewCacheSize(20);
+        recyclerView.setDrawingCacheEnabled(true);
     }
 
     @Override
