@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">isi photos</string>
     <string name="image_feed_desc">Image uploaded to unsplash.com</string>
+    <string name="image_feed_profile">Profile picture</string>
 </resources>

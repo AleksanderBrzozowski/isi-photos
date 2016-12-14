@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_feed_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,17 +16,18 @@
         <LinearLayout
             android:id="@+id/item_feed_profile_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginBottom="3dp"
             android:layout_marginTop="3dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.aleksander.isiphotos.view.SquareHeightImageView
                 android:id="@+id/item_feed_profile_image"
-                android:layout_width="28dp"
-                android:layout_height="28dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/image_feed_profile"/>
             <TextView
                 android:id="@+id/item_feed_username"
                 android:layout_width="wrap_content"
@@ -34,15 +36,15 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
-        <ImageView
+        <com.aleksander.isiphotos.view.WidthRatioImageView
             android:id="@+id/item_feed_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_below="@+id/item_feed_profile_layout"
-            android:adjustViewBounds="true"
             android:contentDescription="@string/image_feed_desc" />
 
     </RelativeLayout>

@@ -2,12 +2,13 @@ package com.aleksander.isiphotos.view_holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aleksander.isiphotos.R;
 import com.aleksander.isiphotos.model.Photo;
 import com.aleksander.isiphotos.presenter.OnItemClickListener;
+import com.aleksander.isiphotos.view.SquareHeightImageView;
+import com.aleksander.isiphotos.view.WidthRatioImageView;
 import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
 
@@ -21,9 +22,9 @@ import butterknife.ButterKnife;
 public class FeedViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.item_feed_image)
-    ImageView imageView;
+    WidthRatioImageView imageView;
     @BindView(R.id.item_feed_profile_image)
-    ImageView profileImageView;
+    SquareHeightImageView profileImageView;
     @BindView(R.id.item_feed_username)
     TextView usernameTextView;
 
@@ -34,6 +35,7 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Photo photo, OnItemClickListener<Photo> onItemClickListener, Picasso picasso) {
+        imageView.setRatio((float)photo.getHeight() / photo.getWidth());
         picasso.load(photo.getUrls().getSmall())
                 .into(imageView);
 
@@ -41,10 +43,9 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
                 .transform(
                         new RoundedTransformationBuilder()
                                 .oval(true)
+                                .borderWidthDp(1f)
                                 .build()
-                )
-                .fit()
-                .into(profileImageView);
+                ).into(profileImageView);
 
         usernameTextView.setText(photo.getUser().getUsername());
     }
