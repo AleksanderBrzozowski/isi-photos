@@ -41,7 +41,7 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
         likesTextView.setText(String.valueOf(photo.getLikes()));
 
         imageView.setRatio((float)photo.getHeight() / photo.getWidth());
-        picasso.load(photo.getUrls().getSmall())
+        picasso.load(photo.getUrls().getRegular())
                 .into(imageView);
 
         picasso.load(photo.getUser().getProfileImage().getMedium())
