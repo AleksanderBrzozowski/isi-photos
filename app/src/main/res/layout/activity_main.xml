@@ -22,7 +22,8 @@
                 android:textAlignment="center"
                 android:text="@string/app_name"
                 android:fontFamily="casual"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:layout_weight="1.09" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

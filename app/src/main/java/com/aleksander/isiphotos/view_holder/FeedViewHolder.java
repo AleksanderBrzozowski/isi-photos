@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.aleksander.isiphotos.R;
 import com.aleksander.isiphotos.model.Photo;
 import com.aleksander.isiphotos.presenter.OnItemClickListener;
+import com.aleksander.isiphotos.utils.ColorUtils;
 import com.aleksander.isiphotos.view.SquareHeightImageView;
 import com.aleksander.isiphotos.view.WidthRatioImageView;
 import com.makeramen.roundedimageview.RoundedTransformationBuilder;
@@ -43,7 +44,8 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
                 .transform(
                         new RoundedTransformationBuilder()
                                 .oval(true)
-                                .borderWidthDp(1f)
+                                .borderWidthDp(0.5f)
+                                .borderColor(ColorUtils.getThemeAccentColor(itemView.getContext()))
                                 .build()
                 ).into(profileImageView);
 
