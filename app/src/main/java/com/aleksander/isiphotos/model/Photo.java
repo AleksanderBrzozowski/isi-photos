@@ -18,4 +18,8 @@ public class Photo {
     private User user;
     private int width;
     private int height;
+
+    public float getRatio() {
+        return (float)height / width;
+    }
 }
