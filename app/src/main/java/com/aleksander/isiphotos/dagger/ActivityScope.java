@@ -1,12 +1,11 @@
 package com.aleksander.isiphotos.dagger;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import javax.inject.Scope;
 
 /**
  * @author Aleksander
  */
 
-@Retention(RetentionPolicy.RUNTIME)
+@Scope
 public @interface ActivityScope {
 }
