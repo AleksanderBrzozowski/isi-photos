@@ -8,7 +8,7 @@ import io.reactivex.disposables.CompositeDisposable;
  * @author Aleksander
  */
 
-public abstract class BasePresenter<T> {
+public class BasePresenter<T> {
 
     protected T view;
     protected CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -23,5 +23,5 @@ public abstract class BasePresenter<T> {
         this.compositeDisposable.dispose();
     }
 
-    protected abstract void doAfterBind();
+    protected void doAfterBind(){}
 }
