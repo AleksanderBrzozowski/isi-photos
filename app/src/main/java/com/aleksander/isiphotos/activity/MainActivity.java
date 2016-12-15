@@ -1,5 +1,6 @@
 package com.aleksander.isiphotos.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,5 +49,10 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
     @Override
     public void showPhotos(List<Photo> photoList) {
         adapter.setPhotoList(photoList);
+    }
+
+    @Override
+    public void startDetailsActivity(Photo photo) {
+        startActivity(new Intent(this, PhotoDetailsActivity.class));
     }
 }

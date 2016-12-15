@@ -10,4 +10,5 @@ import java.util.List;
 
 public interface MainActivityView {
     void showPhotos(List<Photo> photoList);
+    void startDetailsActivity(Photo photo);
 }

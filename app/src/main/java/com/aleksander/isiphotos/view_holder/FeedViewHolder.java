@@ -43,6 +43,7 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
         imageView.setRatio((float)photo.getHeight() / photo.getWidth());
         picasso.load(photo.getUrls().getRegular())
                 .into(imageView);
+        imageView.setOnClickListener(view -> onItemClickListener.onItemClicked(photo));
 
         picasso.load(photo.getUser().getProfileImage().getMedium())
                 .transform(

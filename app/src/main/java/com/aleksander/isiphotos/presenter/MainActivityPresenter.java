@@ -5,6 +5,8 @@ import com.aleksander.isiphotos.dagger.ActivityScope;
 import com.aleksander.isiphotos.model.Photo;
 import com.aleksander.isiphotos.service.PhotosService;
 
+import org.greenrobot.eventbus.EventBus;
+
 import javax.inject.Inject;
 
 /**
@@ -15,10 +17,12 @@ import javax.inject.Inject;
 public class MainActivityPresenter extends BasePresenter<MainActivityView> implements OnItemClickListener<Photo> {
 
     private final PhotosService photosService;
+    private final EventBus eventBus;
 
     @Inject
-    public MainActivityPresenter(PhotosService photosService) {
+    public MainActivityPresenter(PhotosService photosService, EventBus eventBus) {
         this.photosService = photosService;
+        this.eventBus = eventBus;
     }
 
     @Override
@@ -37,6 +41,7 @@ public class MainActivityPresenter extends BasePresenter<MainActivityView> imple
 
     @Override
     public void onItemClicked(Photo item) {
-
+        eventBus.postSticky(item);
+        view.startDetailsActivity(item);
     }
 }
