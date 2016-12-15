@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -88,5 +90,11 @@ public class AppModule {
     @Singleton
     Picasso providePicasso() {
         return Picasso.with(application.getApplicationContext());
+    }
+
+    @Provides
+    @Singleton
+    EventBus provideEventBus() {
+        return EventBus.getDefault();
     }
 }
